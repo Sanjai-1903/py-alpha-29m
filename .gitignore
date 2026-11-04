@@ -1,0 +1,15 @@
+# virtualenv, corpora and checkpoints -- 5.6 GB, rebuilt by prepare.py / train.py
+.venv/
+data/
+checkpoints/
+release/
+out/
+
+__pycache__/
+*.pyc
+.DS_Store
+.vscode/
+.dist/
+
+# the paper is not ours to redistribute
+*.pdf
