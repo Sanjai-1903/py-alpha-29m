@@ -1,4 +1,4 @@
-# py-alpha-01 — a 29.5M encoder-decoder trained from scratch on Python
+# py-alpha-29m — a 29.5M encoder-decoder trained from scratch on Python
 
 An encoder-decoder transformer built and trained end to end on one laptop: own
 tokeniser, own corpus, own span-corruption pretraining, own evaluation harness.
