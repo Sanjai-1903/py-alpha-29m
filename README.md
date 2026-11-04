@@ -1,3 +1,18 @@
+---
+license: mit
+language:
+  - en
+tags:
+  - code
+  - python
+  - encoder-decoder
+  - trained-from-scratch
+datasets:
+  - codeparrot/codeparrot-clean
+pipeline_tag: text2text-generation
+library_name: pytorch
+---
+
 # py-alpha-29m — a 29.5M encoder-decoder trained from scratch on Python
 
 An encoder-decoder transformer built and trained end to end on one laptop: own
