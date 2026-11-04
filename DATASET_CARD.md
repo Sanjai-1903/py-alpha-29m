@@ -22,11 +22,15 @@ the useful part, because each was measured.
 
 | file | rows | size | what it is |
 |---|---|---|---|
-| `stage2_train.jsonl` | 500,000 | 354 MB | raw mined pairs |
 | `stage2clean_train.jsonl` | 54,860 | 19 MB | self-contained, ≤25 lines, no test functions |
 | `stage2aug_train.jsonl` | 51,201 | 24 MB | clean, split into (request + signature) → body |
 
 Validation splits ship alongside each, 1 row in 200.
+
+The raw 500,000-pair set before filtering is **not** published: it is 354 MB in
+which 86.6% of entries reference undefined names and 10.3% are test functions,
+and `prepare.py` regenerates it from the source corpus in about 35 minutes. The
+two filtered variants above are the ones worth using.
 
 ## Format
 
