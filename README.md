@@ -1,4 +1,4 @@
-# pyslm — a 29.5M encoder-decoder trained from scratch on Python
+# py-alpha-01 — a 29.5M encoder-decoder trained from scratch on Python
 
 An encoder-decoder transformer built and trained end to end on one laptop: own
 tokeniser, own corpus, own span-corruption pretraining, own evaluation harness.
@@ -73,6 +73,26 @@ request** — encoder embedding (2.62M), encoder layers (4.83M) and cross-attent
 (4.92M) — while stage 2 requests average 18 tokens. The encoder-decoder split was
 chosen to learn cross-attention, not for efficiency. For short-request-to-long-code,
 decoder-only would spend those parameters on generation instead.
+
+## Loading the released weights
+
+The model is a custom architecture, so `AutoModel` will not load it. Take
+`model.py` and `config.py` from this repo alongside the checkpoint:
+
+```python
+import torch
+from config import Config
+from model import SLM
+
+ck = torch.load("stage2aug.pt", map_location="cpu")
+model = SLM(Config(**ck["config"]))
+model.load_state_dict(ck["model"])
+model.eval()
+```
+
+`stage1.pt` is the span-corruption model — judge it with
+`sample.py --mode denoise`, since it has never seen a natural-language request.
+`stage2aug.pt` writes a function body given a request and a signature.
 
 ## Pipeline
 
